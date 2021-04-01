@@ -31,36 +31,44 @@ export default function Home({ allPostsData, allUsersData }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
+          <div className={utilStyles.wrapperUsers}>
+            {allPostsData.map(({ id, date, title }) => (
+              <li className={utilStyles.listItem} key={id}>
+                <Link href={`/posts/${id}`}>
+                  <a>{title}</a>
+                </Link>
+                <br />
+                <small className={utilStyles.lightText}>
+                  <Date dateString={date} />
+                </small>
+              </li>
+            ))}
+          </div>
         </ul>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Users</h2>
         <ul className={utilStyles.list}>
-          {allUsersData.map(({ id, name, username, email, website, phone }) => (
-            <li className={utilStyles.listItem} key={id}>
-              {name}
-              <br />
-              {username}
-              <br />
-              {email}
-              <br />
-              {website}
-              <br />
-              {phone}
-            </li>
-          ))}
+          <div className={utilStyles.wrapperUsers}>
+            {allUsersData.map(
+              ({ id, name, username, email, website, phone }) => (
+                <li className={utilStyles.listItem} key={id}>
+                  <small className={utilStyles.lightText}>
+                    <h2 className={utilStyles.headingLg}>{name}</h2>
+                    <br />
+                    {username}
+                    <br />
+                    {email}
+                    <br />
+                    {website}
+                    <br />
+                    {phone}
+                  </small>
+                </li>
+              )
+            )}
+          </div>
         </ul>
       </section>
     </Layout>

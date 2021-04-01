@@ -46,8 +46,16 @@
 
 .listItem {
   margin: 0 0 1.25rem;
+  width: 33.3%;
 }
 
 .lightText {
   color: #666;
+}
+
+.wrapperUsers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
